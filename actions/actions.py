@@ -11,7 +11,7 @@ from asyncore import dispatcher
 import datetime as dt
 from typing import Any, Text, Dict, List
 
-from rasa_sdk import Action, Tracker, FormValidationAction
+from rasa_sdk import Action, Tracker , FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 #from rasa_sdk.forms import FormAction
@@ -53,40 +53,40 @@ class ActionRemeberWhere(Action):
 
         return []
 
-# class ValidateNameForm(FormValidationAction):
+class ValidateNameForm(FormValidationAction):
 
-#     def name(self) -> Text:
-#         return "validate_name_form"
+    def name(self) -> Text:
+        return "validate_name_form"
 
-#     def validate_first_name(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#         ) -> List[Dict[Text, Any]]:
-#         """Validate `first_name` value"""
-#         # If the name is super short, it might be wrong.
-#         if len(slot_value) <= 2:
-#             dispatcher.utter_message(text=f"That's a very short name. I'm assuming you mis-spelled it.")
-#             return {"first_name": None}
-#         else:
-#             return {"first_name": slot_value}
+    def validate_first_name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+        ) -> List[Dict[Text, Any]]:
+        """Validate `first_name` value"""
+        # If the name is super short, it might be wrong.
+        if len(slot_value) <= 2:
+            dispatcher.utter_message(text=f"That's a very short name. I'm assuming you mis-spelled it.")
+            return {"first_name": None}
+        else:
+            return {"first_name": slot_value}
 
-#     def validate_last_name(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#         ) -> List[Dict[Text, Any]]:
-#         """Validate `first_name` value"""
-#         # If the name is super short, it might be wrong.
-#         if len(slot_value) <= 2:
-#             dispatcher.utter_message(text=f"That's a very short name. I'm assuming you mis-spelled it.")
-#             return {"last_name": None}
-#         else:
-#             return {"last_name": slot_value}
+    def validate_last_name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+        ) -> List[Dict[Text, Any]]:
+        """Validate `first_name` value"""
+        # If the name is super short, it might be wrong.
+        if len(slot_value) <= 2:
+            dispatcher.utter_message(text=f"That's a very short name. I'm assuming you mis-spelled it.")
+            return {"last_name": None}
+        else:
+            return {"last_name": slot_value}
 
 # class ActionSayFirstName(Action):
 

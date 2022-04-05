@@ -30,6 +30,6 @@ rules:
   - action: name_form
   - active_loop: null
   - slot_was_set: 
-    - requested_slots: null
+    - requested_slot: null
   - action: utter_submit
   - action: utter_slot_values

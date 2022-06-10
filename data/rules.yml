@@ -17,13 +17,13 @@ rules:
   - intent: give_time
   - action: action_show_time
 
-- rule: Activate form
+- rule: Activate name_form
   steps:
   - intent: request_names
   - action: name_form
   - active_loop: name_form
 
-- rule: Submit form
+- rule: Submit name_form
   condition: 
   - active_loop: name_form
   steps:
@@ -31,5 +31,42 @@ rules:
   - active_loop: null
   - slot_was_set: 
     - requested_slot: null
-  - action: utter_submit
-  - action: utter_slot_values
+  - action: utter_submit_name
+  - action: utter_name_values
+
+- rule: Activate add_to_system form
+  steps:
+  - intent: add_to_system
+  - action: add_to_system_form
+  - active_loop: add_to_system_form
+
+- rule: Submit add_to_system form
+  condition:
+  # Condition that form is active.
+  - active_loop: add_to_system_form
+  steps:
+  # Form is deactivated
+  - action: add_to_system_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_submit_system_form
+  - action: utter_middle_name
+
+- rule: Activate stay_form
+  steps:
+  - intent: inform_stay_dates
+  - action: stay_form
+  - active_loop: stay_form
+
+- rule: Submit stay_form
+  condition: 
+  - active_loop: stay_form
+  steps:
+  - action: stay_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  - action: utter_submit_dates
+  - action: utter_stay_values

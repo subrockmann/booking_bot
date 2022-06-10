@@ -110,6 +110,31 @@ nlu:
     - you need to know my name
     - do you know my name?
     - do you need my name
+- intent: add_to_system
+  examples: |
+    - please add me as a user
+    - I want to use the system
+
+- intent: docs
+  examples: |
+    - I want to read the [docs]{"entity": "content_type"}
+    - [Documentation]{"entity": "content_type"}
+    - read the [blogs]{"entity": "content_type"}
+    - read [documentation]{"entity": "content_type"}
+
+- intent: video
+  examples: |
+    - I want to watch the [video]{"entity": "content_type"}
+    - [Video content]{"entity": "content_type"}
+    - watch the [video]{"entity": "content_type"}
+    - view [video]{"entity": "content_type"}
+
+- intent: inform_stay_dates
+  examples: |
+    - I will arrive on [22/11/2022] {"entity": "date", "role": "arrival_date"} and leave on [24/11/2022] {"entity": "date", "role": "departure_date"}.
+    - I will stay from [01/07/2022] {"entity": "date", "role": "arrival_date"} to [06/07/2022] {"entity": "date", "role": "departure_date"}.
+    - Between [03/06/2022] {"entity": "date", "role": "arrival_date"} and [08/06/2022] {"entity": "date", "role": "departure_date"}.
+
 - lookup: place
   examples: |
     - brussels
@@ -119,4 +144,3 @@ nlu:
     - dresden
     - leipzig
     - hannover
-    - hamburg

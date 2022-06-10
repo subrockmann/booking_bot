@@ -44,8 +44,31 @@ stories:
 #   - action: action_remember_where
 #   - action: utter_location
 
+# - story: ask about service
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: action_service
 
 
+- story: docs path
+  steps:
+  - intent: docs
+    entities:
+      - content_type: "Blogs"
+  - slot_was_set:
+      - content_type: "Blogs"
+  - action: utter_blogs
+  
+
+- story: video path
+  steps:
+  - intent: video
+    entities:
+      - content_type: "Video"
+  - slot_was_set:
+      - content_type: "Video"
+  - action: utter_video
 
 
 # - story: interactive_story_1

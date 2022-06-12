@@ -18,6 +18,7 @@ intents:
 - inform_stay_dates
 - docs
 - video
+- inform_checkin_date
 
 
 entities:
@@ -27,6 +28,7 @@ entities:
 - content_type
 - arrival_date
 - departure_date
+- time
 
 
 
@@ -86,6 +88,8 @@ responses:
             type: plain_text
             text: Select a date
 
+  utter_time:
+  - text: It is {time}.  
   utter_ask_middle_name:
   - text: What is your middle name?
 
@@ -145,6 +149,12 @@ slots:
     mappings:
     - type: from_entity
       entity: departure_date
+
+  time:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: time
 
   content_type:
     type: text

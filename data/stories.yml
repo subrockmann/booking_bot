@@ -50,6 +50,10 @@ stories:
 #   - action: utter_greet
 #   - action: action_service
 
+- story: ask arrival_date
+  steps:
+  - intent: inform_checkin_date
+  - action: utter_time
 
 - story: docs path
   steps:

@@ -115,6 +115,12 @@ nlu:
     - please add me as a user
     - I want to use the system
 
+- intent: inform_checkin_date
+  examples: |
+    - I will arrive tomorrow
+    - I will visit you on Monday
+    - What day is today
+    
 - intent: docs
   examples: |
     - I want to read the [docs]{"entity": "content_type"}
